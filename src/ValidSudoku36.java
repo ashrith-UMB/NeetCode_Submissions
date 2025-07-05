@@ -27,7 +27,21 @@ public class ValidSudoku36 {
         }
 
         //Squares
+        for(int square = 0; square < 9; square++){
+            Set<Character> seen = new HashSet<>();
 
+            for(int i = 0; i < 3; i++){
+                for(int j = 0; j < 3; j++){
+                    int row = (square / 3) * 3 + i;
+                    int col = (square % 3) * 3 + j;
+                    if(board[row][col] == '.')
+                        continue;
+                    if(seen.contains(board[row][col]))
+                        return false;
+                    seen.add(board[row][col]);
+                }
+            }
+        }
         return true;
 
     }
@@ -49,6 +63,8 @@ public class ValidSudoku36 {
         ValidSudoku36 validator = new ValidSudoku36();
         boolean result = validator.isValidSudoku(board);
         System.out.println("Is the Sudoku board valid? " + result);
+        /*int col = 8/3;
+        System.out.println(col);*/
 
     }
 }
