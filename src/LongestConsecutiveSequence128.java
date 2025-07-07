@@ -27,14 +27,35 @@ Longest Consecutive Sequence
 */
 
 
+import java.util.Arrays;
+
 public class LongestConsecutiveSequence128 {
     public int longestConsecutive(int[] nums) {
         //Basic approach : Sorting
-        return 0;
+        int maxCount = 0, count = 0, arrLength = nums.length;
+        if(arrLength == 1)
+            return 1;
+        if(arrLength == 0)
+            return 0;
+
+        Arrays.sort(nums);
+        for(int i = 0; i < arrLength - 1; i++){
+            if(nums[i] == nums[i+1])
+                continue;
+
+            if(nums[i] == nums[i+1] - 1){
+                count++;
+                maxCount = Math.max(maxCount, count);
+                continue;
+            }
+            //maxCount = Math.max(maxCount, count);
+            count = 0;
+        }
+        return maxCount+1;
     }
 
     public static void main(String[] args){
-        int[] array = new int[]{0,1,1,2,3,5,7};
+        int[] array = new int[]{2,20,4,10,3,4,5};
 
         LongestConsecutiveSequence128 checker = new LongestConsecutiveSequence128();
         System.out.println("Result : "+ checker.longestConsecutive(array));
