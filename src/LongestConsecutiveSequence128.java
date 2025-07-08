@@ -32,9 +32,9 @@ import java.util.Arrays;
 public class LongestConsecutiveSequence128 {
     public int longestConsecutive(int[] nums) {
         //Basic approach : Sorting
-        int maxCount = 0, count = 0, arrLength = nums.length;
-        if(arrLength == 1)
-            return 1;
+        int maxCount = 1, count = 1, arrLength = nums.length;
+        /*if(arrLength == 1)
+            return 1;*/
         if(arrLength == 0)
             return 0;
 
@@ -51,13 +51,21 @@ public class LongestConsecutiveSequence128 {
             //maxCount = Math.max(maxCount, count);
             count = 0;
         }
-        return maxCount+1;
+        return maxCount;
     }
 
     public static void main(String[] args){
-        int[] array = new int[]{2,20,4,10,3,4,5};
+        int[] array1 = new int[]{2,20,4,10,3,4,5};
+        int[] array2 = new int[]{0};
+        int[] array3 = new int[]{0,5};
+        int[] array4 = new int[]{};
+
+
 
         LongestConsecutiveSequence128 checker = new LongestConsecutiveSequence128();
-        System.out.println("Result : "+ checker.longestConsecutive(array));
+        System.out.println("Result of {2,20,4,10,3,4,5} : "+ checker.longestConsecutive(array1));
+        System.out.println("Result of {0} : "+ checker.longestConsecutive(array2));
+        System.out.println("Result of {} : "+ checker.longestConsecutive(array4));
+
     }
 }
