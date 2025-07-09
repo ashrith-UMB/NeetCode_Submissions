@@ -52,6 +52,10 @@ public class LongestConsecutiveSequence128 {
             count = 0;
         }
         return maxCount;
+
+
+        //using HashTable would give O(n) time complexity
+
     }
 
     public static void main(String[] args){
