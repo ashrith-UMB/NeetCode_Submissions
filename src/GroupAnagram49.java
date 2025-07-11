@@ -42,4 +42,17 @@ public class GroupAnagram49 {
         return new LinkedList<>();
 
     }
+
+    public static void main(String[] args){
+        GroupAnagram49 checker = new GroupAnagram49();
+        String[] string1 = new String[]{"act","pots","tops","cat","stop","hat"};
+        String[] string2 = {"x"};
+        String[] string3 = {""};
+
+        System.out.println("Example 1: " + checker.groupAnagrams(string1));
+        System.out.println("Example 2: " + checker.groupAnagrams(string2));
+        System.out.println("Example 3: " + checker.groupAnagrams(string3));
+
+
+    }
 }
