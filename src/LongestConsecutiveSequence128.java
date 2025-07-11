@@ -28,13 +28,14 @@ Longest Consecutive Sequence
 
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class LongestConsecutiveSequence128 {
     public int longestConsecutive(int[] nums) {
-        //Basic approach : Sorting
+        /*//Basic approach : Sorting
         int maxCount = 1, count = 1, arrLength = nums.length;
-        /*if(arrLength == 1)
-            return 1;*/
+        *//*if(arrLength == 1)
+            return 1;*//*
         if(arrLength == 0)
             return 0;
 
@@ -51,10 +52,37 @@ public class LongestConsecutiveSequence128 {
             //maxCount = Math.max(maxCount, count);
             count = 0;
         }
-        return maxCount;
+        return maxCount;*/
 
 
         //using HashTable would give O(n) time complexity
+        int maxCount = 0;
+
+        HashSet<Integer> numSet = new HashSet<>();
+        for(int num : nums){
+            numSet.add(num);
+        }
+        //int loopCounter = 0 ;
+
+        for(int i = 0; i < nums.length; i++){
+            //loopCounter++;
+            int currentNum = nums[i];
+            int count = 0;
+
+            if(!numSet.contains(currentNum - 1)){
+                while(numSet.contains(currentNum)){
+                    //loopCounter++;
+                    currentNum++;
+                    count++;
+                }
+            }
+
+
+            maxCount = Math.max(maxCount, count);
+        }
+
+        //System.out.println("Loops run : "+ loopCounter);
+        return maxCount;
 
     }
 
@@ -69,6 +97,7 @@ public class LongestConsecutiveSequence128 {
         LongestConsecutiveSequence128 checker = new LongestConsecutiveSequence128();
         System.out.println("Result of {2,20,4,10,3,4,5} : "+ checker.longestConsecutive(array1));
         System.out.println("Result of {0} : "+ checker.longestConsecutive(array2));
+        System.out.println("Result of {0, 5} : "+ checker.longestConsecutive(array3));
         System.out.println("Result of {} : "+ checker.longestConsecutive(array4));
 
     }
