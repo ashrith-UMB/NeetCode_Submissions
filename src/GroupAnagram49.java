@@ -30,16 +30,24 @@ Group Anagrams
 
 
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class GroupAnagram49 {
     public List<List<String>> groupAnagrams(String[] strs) {
 
 
+       // List<List<String>> result = new LinkedList<>();
+        HashMap<String, List<String>> resultMap = new HashMap<>();
 
+        for(String str : strs){
+            char[] charArray =  str.toCharArray();
+            Arrays.sort(charArray);
+            String sortedString = new String(charArray);
+            resultMap.putIfAbsent(sortedString, new ArrayList<>());
+            resultMap.get(sortedString).add(str);
+        }
 
-        return new LinkedList<>();
+        return new ArrayList<>(resultMap.values());
 
     }
 
