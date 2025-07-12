@@ -22,4 +22,22 @@
         1 <= k <= number of distinct elements in nums.*/
 
 public class TopKFrequentElements347 {
+    public int[] topKFrequent(int[] nums, int k) {
+
+        return new int[]{};
+    }
+
+    public static void main(String[] args){
+        int[] array1 = new int[]{1,2,2,3,3,3};
+        int[] array2 = new int[]{7,7};
+        int[] array3 = new int[]{};
+
+        TopKFrequentElements347 checker = new TopKFrequentElements347();
+
+        System.out.println("Result for top 2 elements of {1,2,2,3,3,3} : "+ checker.topKFrequent(array1,2));
+        System.out.println("Result for top 1 elements of {7,7} : "+ checker.topKFrequent(array2,1));
+        System.out.println("Result for top 1 elements of {} : "+ checker.topKFrequent(array3,1));
+
+
+    }
 }
