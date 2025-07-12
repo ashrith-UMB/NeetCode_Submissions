@@ -39,6 +39,8 @@ public class GroupAnagram49 {
        // List<List<String>> result = new LinkedList<>();
         HashMap<String, List<String>> resultMap = new HashMap<>();
 
+        //Time Complexity - O(m*nlogn) - m being the number of strings, n being the longest string
+        //Space Complexity - O(m*n)
         for(String str : strs){
             char[] charArray =  str.toCharArray();
             Arrays.sort(charArray);
