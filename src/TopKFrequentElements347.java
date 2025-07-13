@@ -51,7 +51,7 @@ public class TopKFrequentElements347 {
 
         array.sort((a,b) -> b[0] - a[0]);
 
-        int[] result = new int[array.size()];
+        int[] result = new int[k];
         for(int i = 0; i < k; i++){
             result[i] = array.get(i)[1];
         }
@@ -62,12 +62,12 @@ public class TopKFrequentElements347 {
     public static void main(String[] args){
         int[] array1 = new int[]{1,1,1,1,2,2,3,3,3};
         int[] array2 = new int[]{7,7};
-        int[] array3 = new int[]{};
+        int[] array3 = new int[]{1,2};
 
         TopKFrequentElements347 checker = new TopKFrequentElements347();
 
         System.out.println("Result for top 3 elements of {1,1,1,1,2,2,3,3,3} : ");
-        int[] resultArray = checker.topKFrequent(array1,3);
+        int[] resultArray = checker.topKFrequent(array1,2);
         System.out.print("[");
         for(int i = 0; i < resultArray.length; i++){
             System.out.print(resultArray[i]+",");
@@ -80,8 +80,8 @@ public class TopKFrequentElements347 {
             System.out.print(resultArray[i]+",");
         }
         System.out.println("]");
-        System.out.println("Result for top 1 elements of {} : ");
-        resultArray = checker.topKFrequent(array3,1);
+        System.out.println("Result for top 2 elements of {1,2} : ");
+        resultArray = checker.topKFrequent(array3,2);
         System.out.print("[");
         for(int i = 0; i < resultArray.length; i++){
             System.out.print(resultArray[i]+",");
