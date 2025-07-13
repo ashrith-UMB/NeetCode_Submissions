@@ -22,14 +22,16 @@
         -1000 <= nums[i] <= 1000
         1 <= k <= number of distinct elements in nums.*/
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 
 public class TopKFrequentElements347 {
     public int[] topKFrequent(int[] nums, int k) {
         HashMap<Integer, Integer> countFrequentElements = new HashMap<>();
-        Arrays.sort(nums);
+        //Arrays.sort(nums);
+
+        if (nums == null || nums.length == 0 || k <= 0) {
+            return new int[0];
+        }
 
         for(int num : nums){
             if(countFrequentElements.containsKey(num)){
@@ -39,16 +41,19 @@ public class TopKFrequentElements347 {
                 countFrequentElements.put(num, 1);
             }
         }
-        ArrayList<Integer> resultArray = new ArrayList<>();
 
-        for(int key : countFrequentElements.keySet()){
-            if(countFrequentElements.get(key) >= k)
-                resultArray.add(key);
+
+        List<int[]> array = new ArrayList<>();
+
+        for(Map.Entry<Integer, Integer> map : countFrequentElements.entrySet()){
+            array.add(new int[]{map.getValue(), map.getKey()});
         }
 
-        int[] result = new int[resultArray.size()];
-        for(int i = 0; i < resultArray.size(); i++){
-            result[i] = resultArray.get(i);
+        array.sort((a,b) -> b[0] - a[0]);
+
+        int[] result = new int[array.size()];
+        for(int i = 0; i < k; i++){
+            result[i] = array.get(i)[1];
         }
 
         return result;
