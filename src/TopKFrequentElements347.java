@@ -74,7 +74,7 @@ public class TopKFrequentElements347 {
 
         TopKFrequentElements347 checker = new TopKFrequentElements347();
 
-        System.out.println("Result for top 3 elements of {1,1,1,1,2,2,3,3,3} : ");
+        System.out.println("Result for top 2 elements of {1,1,1,1,2,2,3,3,3} : ");
         int[] resultArray = checker.topKFrequent(array1,2);
         System.out.print("[");
         for(int i = 0; i < resultArray.length; i++){
