@@ -60,9 +60,7 @@ public class TwoSum1 {
             map.put(nums[i], i);
         }
 
-        //throw new IllegalArgumentException("No Match!!");
-
-        return new int[]{0,0};
+        throw new IllegalArgumentException("No two sum solution found");
     }
 
     public static void main(String[] args){
@@ -70,16 +68,23 @@ public class TwoSum1 {
 
         int[] array1 = {3,4,5,6};
         int[] result1 = checker.twoSum(array1, 7);
+        System.out.println("Result 1 : {"+ result1[0]+","+ result1[1]+"}");
 
         int[] array2 = {1,2,5,6};
-        int[] result2 = checker.twoSum(array2, 9);
+        try {
+            int[] result2 = checker.twoSum(array2, 9);
+            System.out.println("Result 2 : {"+ result2[0]+","+ result2[1]+"}");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Result 2 : " + e.getMessage());
+        }
 
         int[] array3 = {1,2,3,4,5,6,7};
-        int[] result3 = checker.twoSum(array3, 18);
-
-        System.out.println("Result 1 : {"+ result1[0]+","+ result1[1]+"}");
-        System.out.println("Result 2 : {"+ result2[0]+","+ result2[1]+"}");
-        System.out.println("Result 3 : {"+ result3[0]+","+ result3[1]+"}");
+        try {
+            int[] result3 = checker.twoSum(array3, 18);
+            System.out.println("Result 3 : {"+ result3[0]+","+ result3[1]+"}");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Result 3 : " + e.getMessage());
+        }
 
     }
 }
